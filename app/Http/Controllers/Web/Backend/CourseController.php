@@ -37,13 +37,11 @@ class CourseController extends Controller
             // $data = Course::with( 'category' );
             // dd($data);
             if ($request->ajax()) {
-                $data = Course::with('category')->latest();
+                $data = Course::all();
 
                 return DataTables::of($data)
                     ->addIndexColumn()
-                    ->addColumn('category_name', function ($data) {
-                        return "<span class='bg-primary rounded py-1 px-3 text-light me-1'>" . $data->category['category_name'] . '</span>';
-                    })
+
                     ->addColumn('course_feature_image', function ($data) {
                         $feature_image = url($data->course_feature_image);
                         return '<div class="avatar avatar-lg"><img class="avatar-img img-fluid" style="border-radius: 10px;" src="' . $feature_image . '" alt="' . $data->course_title . '"></div>';
@@ -85,7 +83,7 @@ class CourseController extends Controller
                         $html .= '</div>';
                         return $html;
                     })
-                    ->rawColumns(['category_name', 'course_price', 'course_feature_image', 'last_update', 'status', 'action'])
+                    ->rawColumns(['course_price', 'course_feature_image', 'last_update', 'status', 'action'])
                     ->make(true);
             }
             return view('backend.layout.course.index');
@@ -118,10 +116,7 @@ class CourseController extends Controller
             //validation rules array
             $rules = [
                 'course_title' => 'required|string|max:255|unique:courses,course_title',
-                'level' => 'required|string|max:255',
-                'category_id' => 'required|exists:categories,id',
                 'course_price' => 'required|numeric',
-                'feature_video' => 'required|url',
                 'summary' => 'required|string',
                 'course_feature_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'module_number.*' => 'required|integer',
@@ -130,8 +125,6 @@ class CourseController extends Controller
             //course module content validation rules added into rules array
             foreach ($request->module_number as $key => $moduleNumber) {
                 $rules["module_{$moduleNumber}_content_title.*"] = 'required|string|max:255';
-                $rules["module_{$moduleNumber}_video_source.*"] = 'required';
-                $rules["module_{$moduleNumber}_video_url.*"] = 'required|nullable|url';
                 $rules["module_{$moduleNumber}_content_length.*"] = 'required|nullable|string|max:255';
                 $rules["module_{$moduleNumber}_video_file.*"] = 'nullable|mimes:mp4,avi,mkv,webm|max:51200';
                 $rules["module_{$moduleNumber}_files.*"] = 'nullable|mimes:mp4,avi,mkv,webm|max:51200';
@@ -167,9 +160,9 @@ class CourseController extends Controller
                 $course = new Course();
                 $course->course_title = $request->course_title;
                 $course->course_slug = $slug_data;
-                $course->feature_video = $request->feature_video;
-                $course->level = $request->level;
-                $course->category_id = $request->category_id;
+                //$course->feature_video = $request->feature_video;
+                //$course->level = $request->level;
+                //$course->category_id = $request->category_id;
                 $course->course_price = $request->course_price;
                 $course->summary = $request->summary;
                 $course->course_feature_image = $featuredImage;
@@ -189,8 +182,6 @@ class CourseController extends Controller
 
                         $courseContent = new CourseContent();
                         $courseContent->content_title = $title;
-                        $courseContent->video_url = $request["module_{$moduleNumber}_video_url"][$i];
-                        $courseContent->video_source = $request["module_{$moduleNumber}_video_source"][$i];
                         $courseContent->content_length = $request["module_{$moduleNumber}_content_length"][$i];
                         // Handle video file upload if exists
                         if ($request->hasFile("module_{$moduleNumber}_video_file") && $request->file("module_{$moduleNumber}_video_file")[$i]) {

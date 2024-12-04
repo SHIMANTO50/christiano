@@ -26,8 +26,8 @@
                     </a>
                 </li>
 
-                @can('journal menu')
-                    {{-- Journals --}}
+                {{-- @can('journal menu')
+
                     <li class="nav-item">
                         <a class="nav-link has-arrow @if (request()->routeIs('admin.journal*')) active @endif"
                             href="{{ route('admin.journal.index') }}">
@@ -35,10 +35,10 @@
                             Journals
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
 
-                @can('forum menu')
-                    {{-- Furams --}}
+                {{-- @can('forum menu')
+
                     <li class="nav-item">
                         <a class="nav-link has-arrow @if (request()->routeIs('admin.furam*')) active @endif"
                             href="{{ route('admin.furam.index') }}">
@@ -46,10 +46,10 @@
                             Forums
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
 
-                @can('category menu')
-                    {{-- Categories --}}
+                {{-- @can('category menu')
+
                     <li class="nav-item">
                         <a class="nav-link has-arrow @if (request()->routeIs('category*')) active @endif"
                             href="{{ route('category.index') }}">
@@ -57,8 +57,8 @@
                             Categories
                         </a>
                     </li>
-                @endcan
-                @can('super admin')
+                @endcan --}}
+                {{-- @can('super admin')
                 <li class="nav-item">
                     <a class="nav-link has-arrow @if (request()->routeIs('job.post')) active @endif"
                         href="{{ route('job.post') }}">
@@ -66,8 +66,8 @@
                         Job Posts
                     </a>
                 </li>
-                @endcan
-                @can('jobpost menu')
+                @endcan --}}
+                {{-- @can('jobpost menu')
                     <li class="nav-item">
                         <a class="nav-link has-arrow @if (request()->routeIs('job.post.user')) active @endif"
                             href="{{ route('job.post.user') }}">
@@ -75,10 +75,10 @@
                             My Job Post
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
 
-                @can('bundle menu')
-                    {{-- Bundle --}}
+                {{-- @can('bundle menu')
+
                     <li class="nav-item">
                         <a class="nav-link has-arrow @if (request()->routeIs('bundle*')) active @endif"
                             href="{{ route('bundle.index') }}">
@@ -86,7 +86,7 @@
                             Bundles
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
 
                 @can('course menu')
                     {{-- Course --}}
@@ -99,8 +99,8 @@
                     </li>
                 @endcan
 
-                @can('quiz menu')
-                    {{-- Quize --}}
+                {{-- @can('quiz menu')
+
                     <li class="nav-item">
                         <a class="nav-link has-arrow @if (request()->routeIs('quiz.*')) active @endif"
                             href="{{ route('quiz.index') }}">
@@ -108,9 +108,9 @@
                             Quizzes
                         </a>
                     </li>
-                @endcan
-                @can('promo code menu')
-                    {{-- Promo --}}
+                @endcan --}}
+                {{-- @can('promo code menu')
+
                     <li class="nav-item">
                         <a class="nav-link has-arrow @if (request()->routeIs('promoCode.*')) active @endif"
                             href="{{ route('promoCode.index') }}">
@@ -120,7 +120,7 @@
                     </li>
                 @endcan
                 @can('book menu')
-                    <!-- Book item -->
+
                     <li class="nav-item">
                         <a class="nav-link has-arrow @if (request()->routeIs('book.*')) active @endif"
                             href="{{ route('book.index') }}">
@@ -130,7 +130,7 @@
                     </li>
                 @endcan
                 @can('guide menu')
-                    <!-- Guide item -->
+
                     <li class="nav-item">
                         <a class="nav-link has-arrow @if (request()->routeIs('guide.*')) active @endif"
                             href="{{ route('guide.index') }}">
@@ -138,7 +138,7 @@
                             Guides
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
 
                 <!-- Setting Module -->
                 <li class="nav-item">
@@ -216,14 +216,14 @@
                 @can('permission menu')
                     <!-- Role And Permission item -->
                     <li class="nav-item">
-                        <a href="javascript:void(0)"
+                        {{-- <a href="javascript:void(0)"
                             class="nav-link has-arrow @if (request()->routeIs('user.permission.*')) active @else collapsed @endif"
                             data-bs-toggle="collapse" data-bs-target="#navRolePermission"
                             aria-expanded="{{ request()->is('user.permission.*') ? 'true' : 'false' }}"
                             aria-controls="navRolePermission">
                             <i class="nav-icon me-2 bi bi-diagram-3"></i>
                             User Permissions
-                        </a>
+                        </a> --}}
                         <div id="navRolePermission" class="mt-4 collapse @if (request()->routeIs('user.permission.*')) show @endif"
                             data-bs-parent="#sideNavbar">
                             <ul class="nav flex-column list-group ">

@@ -41,8 +41,9 @@ Route::controller(UserAuthController::class)->group(function () {
 Route::group(['middleware' => ['jwt.verify']], function() {
 
     Route::get('course', [CourseController::class, 'index']);
-
-
+    Route::get('/courses/{courseId}', [CourseController::class, 'courseModulesUnderCourseId']);
+    Route::get('/course-modules/{moduleId}', [CourseController::class, 'courseContentsUnderModuleId']);
+    Route::get('/courses/{courseId}/files', [CourseController::class, 'courseFilesUnderCourseId']);
 
 });
 

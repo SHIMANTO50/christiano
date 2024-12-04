@@ -32,9 +32,9 @@
                                                 <th>SL#</th>
                                                 <th>Image</th>
                                                 <th>Name</th>
-                                                <th>Level</th>
+
                                                 <th>Duration</th>
-                                                <th>Category</th>
+
                                                 <th>Price</th>
                                                 <th>Last Update</th>
                                                 <th>Status</th>
@@ -123,24 +123,14 @@
                             orderable: true,
                             searchable: true
                         },
-                        {
-                            data: 'level',
-                            name: 'level',
-                            orderable: true,
-                            searchable: true
-                        },
+
                         {
                             data: 'duration',
                             name: 'duration',
                             orderable: true,
                             searchable: true
                         },
-                        {
-                            data: 'category_name',
-                            name: 'category_name',
-                            orderable: true,
-                            searchable: true
-                        },
+
                         {
                             data: 'course_price',
                             name: 'course_price',

@@ -67,7 +67,7 @@
                                         @endif
                                     </div>
                                     <!-- Input Item -->
-                                    <div class="col-md-6 mb-3">
+                                    {{-- <div class="col-md-6 mb-3">
                                         <label class="form-label" for="feature_video">Feature Video</label>
                                         <input type="url" name="feature_video" id="feature_video"
                                             class="form-control {{ $errors->has('feature_video') ? 'is-invalid' : '' }}"
@@ -77,9 +77,9 @@
                                                 {{ $errors->first('feature_video') }}
                                             </div>
                                         @endif
-                                    </div>
+                                    </div> --}}
                                     <!-- Input Item -->
-                                    <div class="col-md-4 mb-3">
+                                    {{-- <div class="col-md-4 mb-3">
                                         <label class="form-label" for="level">Level</label>
                                         <input type="text" name="level" id="level"
                                             class="form-control {{ $errors->has('level') ? 'is-invalid' : '' }}"
@@ -89,9 +89,9 @@
                                                 {{ $errors->first('level') }}
                                             </div>
                                         @endif
-                                    </div>
+                                    </div> --}}
                                     <!-- Input Item -->
-                                    <div class="col-md-4 mb-3">
+                                    {{-- <div class="col-md-4 mb-3">
                                         <label for="category_id" class="form-label">Category</label>
                                         <select
                                             class="form-select text-capitalize {{ $errors->has('category_id') ? 'is-invalid' : '' }}"
@@ -109,7 +109,7 @@
                                                 {{ $errors->first('category_id') }}
                                             </div>
                                         @endif
-                                    </div>
+                                    </div> --}}
                                     <!-- Input Item -->
                                     <div class="col-md-4 mb-3">
                                         <label class="form-label" for="course_price">Course Price </label>
@@ -209,7 +209,7 @@
                                                                                 <div class="invalid-feedback mb-2">Content
                                                                                     title
                                                                                     required</div>
-                                                                                <label for="video_source"
+                                                                                {{-- <label for="video_source"
                                                                                     class="form-label">Video Source
                                                                                     Type</label>
                                                                                 <select
@@ -228,8 +228,8 @@
                                                                                     <option value="3"
                                                                                         class="text-capitalize">Custom URL
                                                                                     </option>
-                                                                                </select>
-                                                                                <div class="invalid-feedback mb-2">Please
+                                                                                </select> --}}
+                                                                                {{-- <div class="invalid-feedback mb-2">Please
                                                                                     Select
                                                                                     Video Source</div>
                                                                                 <label class="form-label">Video URL</label>
@@ -238,7 +238,7 @@
                                                                                     class="form-control mb-2" required>
                                                                                 <div class="invalid-feedback mb-2">Video
                                                                                     URL
-                                                                                    required</div>
+                                                                                    required</div> --}}
                                                                                 <label class="form-label">Video
                                                                                     Length</label>
                                                                                 <input type="text"
@@ -366,25 +366,10 @@
                                             <label class="form-label">Content Title</label>
                                                 <input type="text" name="module_${moduleIndex}_content_title[]" class="form-control mb-2" required>
                                                 <div class="invalid-feedback mb-2">Content title required</div>
-                                                <label for="video_source" class="form-label">Video Source Type</label>
-                                                <select class="form-select text-capitalize mb-2" id="video_source" required
-                                                name="module_${moduleIndex}_video_source[]">
-                                                    <option selected disabled
-                                                        value="">Choose...</option>
-                                                    <option value="1"
-                                                        class="text-capitalize">Youtube
-                                                    </option>
-                                                    <option value="2"
-                                                        class="text-capitalize">Vimeo
-                                                    </option>
-                                                    <option value="3"
-                                                        class="text-capitalize">Custom URL
-                                                    </option>
-                                                </select>
-                                                <div class="invalid-feedback mb-2">Please Select Video Source</div>
-                                                <label class="form-label">Video URL</label>
-                                                <input type="url" name="module_${moduleIndex}_video_url[]" class="form-control mb-2" required>
-                                                <div class="invalid-feedback mb-2">Video URL required</div>
+
+
+
+
                                                 <label class="form-label">Video Length</label>
                                                 <input type="text" name="module_${moduleIndex}_content_length[]" class="form-control mb-2" pattern="^(0?[0-9]|1[0-9]|2[0-3]):([0-5]?[0-9]):([0-5]?[0-9])$" placeholder="HH:MM:SS" required>
                                                 <div class="invalid-feedback mb-2">Video Length required</div>
@@ -451,25 +436,9 @@
                             <label class="form-label">Content Title</label>
                             <input type="text" name="module_${moduleNumber}_content_title[]" class="form-control mb-2" required>
                             <div class="invalid-feedback mb-2">Content title required</div>
-                            <label for="video_source" class="form-label">Video Source Type</label>
-                            <select class="form-select text-capitalize mb-2" id="video_source" required
-                            name="module_${moduleNumber}_video_source[]">
-                                <option selected disabled
-                                    value="">Choose...</option>
-                                <option value="1"
-                                    class="text-capitalize">Youtube
-                                </option>
-                                <option value="2"
-                                    class="text-capitalize">Vimeo
-                                </option>
-                                <option value="3"
-                                    class="text-capitalize">Custom URL
-                                </option>
-                            </select>
-                            <div class="invalid-feedback mb-2">Please Select Video Source</div>
-                            <label class="form-label">Video URL</label>
-                            <input type="url" name="module_${moduleNumber}_video_url[]" class="form-control mb-2" required>
-                            <div class="invalid-feedback mb-2">Video URL required</div>
+
+
+
                             <label class="form-label">Video Length</label>
                             <input type="text" name="module_${moduleNumber}_content_length[]" class="form-control mb-2" pattern="^(0?[0-9]|1[0-9]|2[0-3]):([0-5]?[0-9]):([0-5]?[0-9])$" placeholder="HH:MM:SS" required>
                             <div class="invalid-feedback mb-2">Video Length required</div>
